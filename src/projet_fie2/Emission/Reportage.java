@@ -9,8 +9,13 @@ package projet_fie2.Emission;
  *
  * @author mattonhugo
  */
-public enum ThemeReportage {
-INFORMATION,
-ANIMALIER,
-CULTUREL;
+public class Reportage extends Emission{
+    
+    private ThemeReportage theme;
+    
+    public Reportage(int dureeEmission, String nom, ThemeReportage theme ) {
+        super(dureeEmission, nom);
+        this.theme = theme;
+    }
+    
 }

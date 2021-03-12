@@ -11,4 +11,13 @@ package projet_fie2.Emission;
  */
 public class Emission {
     
+    protected int duree;
+    protected String nom;
+
+    public Emission(int duree, String nom) {
+        this.duree = duree;
+        this.nom = nom;
+    }
+    
+    
 }
