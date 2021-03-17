@@ -5,6 +5,7 @@
  */
 package projet_fie2.Emission;
 
+import Exception.HoraireException;
 import projet_fie2.Personne.Realisateur;
 
 /**
@@ -17,11 +18,22 @@ public class Fiction extends Emission{
     private boolean redifusion;
     private Realisateur realisateur;
     
-    public Fiction(int dureeEmission, String nom, int annee, boolean redifusion ,Realisateur realisateur) {
-        super(dureeEmission, nom);
+    public Fiction(int dureeEmission, String nom, int annee, boolean redifusion ,Realisateur realisateur, int heureDebut) throws HoraireException{
+        super(dureeEmission, nom, heureDebut);
         this.realisateur = realisateur;
         this.redifusion = redifusion;
         this.anneRealisation = annee;
+        
+        if (heureDebut != 21 && redifusion==false) {
+            throw new HoraireException ("Mauvais crénaud horaire, une fiction peut commencer à 21h.");
+        }
+        
+        
+    }
+
+    @Override
+    public String toString() {
+        return "Fiction, annee de realisation :" + anneRealisation + ", redifusion : " + redifusion + ", realisateur : " + realisateur;
     }
     
 }

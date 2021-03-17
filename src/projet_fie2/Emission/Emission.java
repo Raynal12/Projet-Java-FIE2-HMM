@@ -5,7 +5,7 @@
  */
 package projet_fie2.Emission;
 
-import projet_fie2.Grille.Grille;
+import ProgrammeTele.ProgrammeTele;
 
 /**
  *
@@ -15,13 +15,18 @@ public class Emission {
     
     protected int duree;
     protected String nom;
+    protected int heureDebut;
 
-    public Emission(int duree, String nom) {
+    public Emission(int duree, String nom, int heureDebut) {
         this.duree = duree;
         this.nom = nom;
-    }
-    
-    public void programmer(Grille grille){
+        this.heureDebut = heureDebut;
+       
         
+    }
+
+    @Override
+    public String toString() {
+        return "Emission : " + nom + ", duree : " + duree + ", heure de debut : " + heureDebut;
     }
 }

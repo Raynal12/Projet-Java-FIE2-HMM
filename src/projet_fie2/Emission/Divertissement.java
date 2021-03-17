@@ -5,6 +5,7 @@
  */
 package projet_fie2.Emission;
 
+import Exception.HoraireException;
 import projet_fie2.Personne.Animateur;
 
 /**
@@ -15,9 +16,20 @@ public abstract class Divertissement extends Emission{
     
     private Animateur animateur;
     
-    public Divertissement(int dureeEmission, String nom, Animateur animateur) {
-        super(dureeEmission, nom);
+    public Divertissement(int dureeEmission, String nom, Animateur animateur, int heureDebut) throws HoraireException{
+        super(dureeEmission, nom, heureDebut);
         this.animateur = animateur;
+        
+        if (heureDebut<18 || heureDebut>23) {
+            throw new HoraireException ("Mauvais crénaud horaire, un divertiqqement peut commencer entre 18h et 23h.");
+        }
+        
+        
+    }
+
+    @Override
+    public String toString() {
+        return "Divertissement," + "animateur=" + animateur;
     }
     
 }
