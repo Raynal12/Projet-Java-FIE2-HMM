@@ -5,6 +5,7 @@
  */
 package projet_fie2.Emission;
 
+import Exception.DureeException;
 import projet_fie2.Personne.Animateur;
 
 /**
@@ -15,9 +16,10 @@ public abstract class Divertissement extends Emission{
     
     private Animateur animateur;
     
-    public Divertissement(int dureeEmission, String nom, Animateur animateur) {
+    public Divertissement(int dureeEmission, String nom, Animateur animateur){
         super(dureeEmission, nom);
         this.animateur = animateur;
+        
     }
     
 }
