@@ -5,6 +5,8 @@
  */
 package projet_fie2.Emission;
 
+import projet_fie2.Grille.Grille;
+
 /**
  *
  * @author mattonhugo
@@ -19,5 +21,7 @@ public class Emission {
         this.nom = nom;
     }
     
-    
+    public void programmer(Grille grille){
+        
+    }
 }

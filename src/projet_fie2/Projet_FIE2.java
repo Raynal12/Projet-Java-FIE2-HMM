@@ -5,6 +5,9 @@
  */
 package projet_fie2;
 
+import projet_fie2.Emission.Fiction;
+import projet_fie2.Grille.Grille;
+
 /**
  *
  * @author fanta
@@ -15,7 +18,8 @@ public class Projet_FIE2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+       
+        
     }
     
 }

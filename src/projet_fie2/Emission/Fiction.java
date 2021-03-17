@@ -25,3 +25,4 @@ public class Fiction extends Emission{
     }
     
 }
+

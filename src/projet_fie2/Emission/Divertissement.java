@@ -11,7 +11,7 @@ import projet_fie2.Personne.Animateur;
  *
  * @author mattonhugo
  */
-public class Divertissement extends Emission{
+public abstract class Divertissement extends Emission{
     
     private Animateur animateur;
     

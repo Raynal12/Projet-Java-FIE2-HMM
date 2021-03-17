@@ -9,7 +9,7 @@ package projet_fie2.Personne;
  *
  * @author mattonhugo
  */
-public class Personne {
+public abstract class Personne {
     private String nom;
     private String prenom;
 
