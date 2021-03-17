@@ -12,15 +12,19 @@ import projet_fie2.Emission.Emission;
  *
  * @author mattonhugo
  */
-public class Grille {
+public class Grille extends ArrayList{
     
-    ArrayList<Emission> lesEmissions;
     private int[] table;
     
     public Grille (){
         this.table = new int[23];
-        this.lesEmissions = new ArrayList<>();
     }
+
+    public int[] getTable() {
+        return table;
+    }
+    
+    
     
     
 }
