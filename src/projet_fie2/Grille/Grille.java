@@ -23,10 +23,7 @@ public class Grille extends ArrayList{
     public int[] getTable() {
         return table;
     }
-    
-    
-    
-    
+  
 }
 
 
