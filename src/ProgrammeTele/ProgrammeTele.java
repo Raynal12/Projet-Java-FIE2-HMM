@@ -12,14 +12,13 @@ import projet_fie2.Emission.Emission;
  *
  * @author mattonhugo
  */
-public class ProgrammeTele {
+public class ProgrammeTele extends ArrayList<Emission>{
     
-    ArrayList<Emission> lesEmissions;
     private int[] table;
     
     public ProgrammeTele (){
+        super();
         this.table = new int[23];
-        this.lesEmissions = new ArrayList<>();
     }
     
     

@@ -21,15 +21,15 @@ public class Reportage extends Emission{
         this.theme = theme;
     
     
-    if (heureDebut>=18) {
-        if (heureDebut>=6 && heureDebut<=14) {
-            throw new HoraireException ("Mauvais crénaud horaire, un reportage peut commencer entre 14h et 18h ou entre 0h et 6h.");
+        if (heureDebut>=18) {
+            if (heureDebut>=6 && heureDebut<=14) {
+                throw new HoraireException ("Mauvais crénaud horaire, un reportage peut commencer entre 14h et 18h ou entre 0h et 6h.");
+            }
         }
-    }
     
-    if (dureeEmission > 1) {
-        throw new DureeException ("Durée du reportage fausse. Il ne peut pas excéder 1 heure.");
-    }
+        if (dureeEmission > 1) {
+            throw new DureeException ("Durée du reportage fausse. Il ne peut pas excéder 1 heure.");
+        }
     
     }
 
