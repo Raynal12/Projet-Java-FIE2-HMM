@@ -19,10 +19,10 @@ public class Reportage extends Emission{
         super(dureeEmission, nom, heureDebut);
         this.theme = theme;
     
-    
-    if ((heureDebut<14 || heureDebut>18) || heureDebut>6) {
+  
+        if ((heureDebut<14 || heureDebut>18) || heureDebut>6) {
             throw new HoraireException ("Mauvais crénaud horaire, un divertiqqement peut commencer entre 14h et 18h ou entre 0h et 6h.");
-        }
+    }
     
     
     }

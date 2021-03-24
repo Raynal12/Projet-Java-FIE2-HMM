@@ -11,6 +11,8 @@ import ProgrammeTele.ProgrammeTele;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import projet_fie2.Emission.Reportage;
+import projet_fie2.Emission.ThemeReportage;
 import projet_fie2.Personne.Realisateur;
 
 /**
@@ -23,10 +25,13 @@ public class Projet_FIE2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       
-        ArrayList<String> array = new ArrayList<>();
-      
         
+        Reportage rep = new Reportage(2,'Thalassa',ThemeReportage.ANIMALIER,15);
+        
+        ProgrammeTele programme = new ProgrammeTele();
+        programme.add();
+        System.out.println(programme.get(0));
+      
     }
     
 }
