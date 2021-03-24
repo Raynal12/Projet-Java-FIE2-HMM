@@ -10,8 +10,8 @@ package projet_fie2.Personne;
  * @author mattonhugo
  */
 public abstract class Personne {
-    private String nom;
-    private String prenom;
+    protected String nom;
+    protected String prenom;
 
     public Personne(String nom, String prenom) {
         this.nom = nom;

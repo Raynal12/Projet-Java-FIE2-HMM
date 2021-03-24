@@ -28,12 +28,16 @@ public class Fiction extends Emission{
             throw new HoraireException ("Mauvais crénaud horaire, une fiction peut commencer à 21h.");
         }
         
-        
     }
 
     @Override
     public String toString() {
-        return "Fiction, annee de realisation :" + anneRealisation + ", redifusion : " + redifusion + ", realisateur : " + realisateur;
+        if (redifusion) {
+        return "'" + nom + "' heure de diffusion : " + heureDebut + "heure, durée : " + duree + "heures,  Genre : Fiction, annee de realisation :" + anneRealisation + ", " + realisateur + ". Redifusion.";
+        } else {
+        return "'" + nom + "' heure de diffusion : " + heureDebut + "heure, durée : " + duree + "heures,  Genre : Fiction, annee de realisation :" + anneRealisation + ", " + realisateur;
+
+        }
     }
     
 }

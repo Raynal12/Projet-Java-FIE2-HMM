@@ -13,16 +13,22 @@ import projet_fie2.Personne.Animateur;
  *
  * @author mattonhugo
  */
-public abstract class Divertissement extends Emission{
+public class Divertissement extends Emission{
     
     private Animateur animateur;
     
-    public Divertissement(int dureeEmission, String nom, Animateur animateur, int heureDebut) throws HoraireException{
+    public Divertissement(int dureeEmission, String nom, Animateur animateur, int heureDebut) throws HoraireException, DureeException{
         super(dureeEmission, nom, heureDebut);
         this.animateur = animateur;
+        
         if (heureDebut<18 || heureDebut>23) {
-            throw new HoraireException ("Mauvais crénaud horaire, un divertiqqement peut commencer entre 18h et 23h.");
+            throw new HoraireException ("Mauvais crénaud horaire, un divertissement peut commencer entre 18h et 23h.");
         }
+        
+        if (dureeEmission != 2) {
+            throw new DureeException ("Durée du divertissement fausse. Elle doit être égale à 2 heures.");
+        }
+        
     }
     
     public String toString() {

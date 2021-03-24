@@ -17,7 +17,7 @@ public class Realisateur extends Personne{
 
     @Override
     public String toString() {
-        return "Realisateur : ";
+        return "Realisateur : " + super.toString();
     }
     
     
