@@ -11,6 +11,7 @@ import ProgrammeTele.ProgrammeTele;
  *
  * @author mattonhugo
  */
+// petit commentaire pour voir si je peux push Maëlle
 public class Emission {
     
     protected int duree;
