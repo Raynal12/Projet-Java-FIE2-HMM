@@ -8,6 +8,7 @@ package projet_fie2;
 import Exception.HoraireException;
 import projet_fie2.Emission.Fiction;
 import ProgrammeTele.ProgrammeTele;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import projet_fie2.Personne.Realisateur;
@@ -23,13 +24,8 @@ public class Projet_FIE2 {
      */
     public static void main(String[] args) {
        
-        try {
-            Fiction fiction1 = new Fiction (2, "Avengers", 2004, false, new Realisateur("Paul", "Dulin"), 21);
-            System.out.println(fiction1);
-        } catch (HoraireException ex) {
-            Logger.getLogger(Projet_FIE2.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        ArrayList<String> array = new ArrayList<>();
+      
         
     }
     
