@@ -12,7 +12,7 @@ import ProgrammeTele.ProgrammeTele;
  * @author mattonhugo
  */
 // petit commentaire pour voir si je peux push Maëlle
-public class Emission {
+public abstract class Emission {
     
     protected int duree;
     protected String nom;
