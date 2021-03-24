@@ -5,6 +5,7 @@
  */
 package projet_fie2;
 
+import Exception.EmissionException;
 import Exception.HoraireException;
 import projet_fie2.Emission.Fiction;
 import ProgrammeTele.ProgrammeTele;
@@ -25,6 +26,17 @@ public class Projet_FIE2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        Reportage rep = null;
+        try{
+            rep = new Reportage (2,"Thalassa",ThemeReportage.ANIMALIER,13);
+        }catch(EmissionException e){
+            System.out.println(e);
+        }
+        
+       
+        ProgrammeTele programme = new ProgrammeTele();
+        programme.add(rep);
         
         
       
