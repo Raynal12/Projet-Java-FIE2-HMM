@@ -32,7 +32,7 @@ public class Divertissement extends Emission{
     }
     
     public String toString() {
-        return "Divertissement," + "animateur=" + animateur;
+        return "'" + nom + "' Heure début : " + heureDebut + "h, durée : "+ duree + "h. Divertissement, " + animateur;
     }
 
 }

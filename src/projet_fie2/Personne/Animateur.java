@@ -17,7 +17,7 @@ public class Animateur extends Personne{
 
     @Override
     public String toString() {
-        return "Animateur : ";
+        return "Animateur : " + super.toString();
     }
     
     

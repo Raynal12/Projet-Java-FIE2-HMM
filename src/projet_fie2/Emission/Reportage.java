@@ -35,7 +35,7 @@ public class Reportage extends Emission{
 
     @Override
     public String toString() {
-        return "Reportage, theme : " + theme;
+        return "'" + nom + "' Heure début :" + heureDebut + "h, durée : " + duree + "h. Reportage, theme : " + theme;
     }
     
 }

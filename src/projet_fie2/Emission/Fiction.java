@@ -33,9 +33,9 @@ public class Fiction extends Emission{
     @Override
     public String toString() {
         if (redifusion) {
-        return "'" + nom + "' heure de diffusion : " + heureDebut + "heure, durée : " + duree + "heures,  Genre : Fiction, annee de realisation :" + anneRealisation + ", " + realisateur + ". Redifusion.";
+        return "'" + nom + "' Heure de diffusion : " + heureDebut + "h, durée : " + duree + "h. Fiction, redifusion. Annee de realisation :" + anneRealisation + ", " + realisateur;
         } else {
-        return "'" + nom + "' heure de diffusion : " + heureDebut + "heure, durée : " + duree + "heures,  Genre : Fiction, annee de realisation :" + anneRealisation + ", " + realisateur;
+        return "'" + nom + "' Heure de diffusion : " + heureDebut + "h, durée : " + duree + "h. Fiction, annee de realisation :" + anneRealisation + ", " + realisateur;
 
         }
     }
