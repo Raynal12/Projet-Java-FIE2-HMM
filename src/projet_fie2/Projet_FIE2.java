@@ -26,11 +26,7 @@ public class Projet_FIE2 {
      */
     public static void main(String[] args) {
         
-        Reportage rep = new Reportage(2,'Thalassa',ThemeReportage.ANIMALIER,15);
         
-        ProgrammeTele programme = new ProgrammeTele();
-        programme.add();
-        System.out.println(programme.get(0));
       
     }
     
