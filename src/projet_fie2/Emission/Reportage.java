@@ -5,6 +5,7 @@
  */
 package projet_fie2.Emission;
 
+import Exception.DureeException;
 import Exception.HoraireException;
 
 /**
@@ -15,7 +16,7 @@ public class Reportage extends Emission{
     
     private ThemeReportage theme;
     
-    public Reportage(int dureeEmission, String nom, ThemeReportage theme, int heureDebut ) throws HoraireException{
+    public Reportage(int dureeEmission, String nom, ThemeReportage theme, int heureDebut ) throws HoraireException, DureeException{
         super(dureeEmission, nom, heureDebut);
         this.theme = theme;
     
@@ -24,6 +25,9 @@ public class Reportage extends Emission{
             throw new HoraireException ("Mauvais crénaud horaire, un divertiqqement peut commencer entre 14h et 18h ou entre 0h et 6h.");
     }
     
+    if (dureeEmission <= 1) {
+        throw new DureeException ("Durée du reportage fausse. Il ne peut pas excéder 1 heure.");
+    }
     
     }
 
