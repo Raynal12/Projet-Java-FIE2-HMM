@@ -31,7 +31,7 @@ public class Projet_FIE2 {
         
         Reportage rep = null;
         try{
-            rep = new Reportage (2,"Thalassa",ThemeReportage.ANIMALIER,13);
+            rep = new Reportage (1,"Thalassa",ThemeReportage.ANIMALIER,13);
         }catch(EmissionException e){
             System.out.println(e);
         }

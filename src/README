@@ -1,0 +1,8 @@
+enlever heure debut en attribut d'emissiion
+creer une méthode programmer
+divertissement.programmer(grille, heure)
+-->heure va remplir un attribut qu'on aura pas initialisé dans le constructeur
+
+Question :
+Mieux vaut un gros try catch ou un pour chaque instance ?
+
