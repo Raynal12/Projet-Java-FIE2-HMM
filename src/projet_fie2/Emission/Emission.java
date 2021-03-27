@@ -5,6 +5,7 @@
  */
 package projet_fie2.Emission;
 
+import Exception.HoraireException;
 import ProgrammeTele.ProgrammeTele;
 
 /**
@@ -18,16 +19,16 @@ public abstract class Emission {
     protected String nom;
     protected int heureDebut;
 
-    public Emission(int duree, String nom, int heureDebut) {
+    public Emission(int duree, String nom) {
         this.duree = duree;
         this.nom = nom;
-        this.heureDebut = heureDebut;
+        
        
         
     }
     
-
-
+    public abstract void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException;
+    
     @Override
     public String toString() {
         return "Emission : " + nom + ", duree : " + duree + ", heure de debut : " + heureDebut;

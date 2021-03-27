@@ -7,6 +7,7 @@ package projet_fie2.Emission;
 
 import Exception.HoraireException;
 import Exception.DureeException;
+import ProgrammeTele.ProgrammeTele;
 import projet_fie2.Personne.Animateur;
 
 /**
@@ -17,13 +18,9 @@ public class Divertissement extends Emission{
     
     private Animateur animateur;
     
-    public Divertissement(int dureeEmission, String nom, Animateur animateur, int heureDebut) throws HoraireException, DureeException{
-        super(dureeEmission, nom, heureDebut);
+    public Divertissement(int dureeEmission, String nom, Animateur animateur) throws  DureeException{
+        super(dureeEmission, nom);
         this.animateur = animateur;
-        
-        if (heureDebut<18 || heureDebut>23) {
-            throw new HoraireException ("Mauvais crénaud horaire, un divertissement peut commencer entre 18h et 23h.");
-        }
         
         if (dureeEmission != 2) {
             throw new DureeException ("Durée du divertissement fausse. Elle doit être égale à 2 heures.");
@@ -33,6 +30,15 @@ public class Divertissement extends Emission{
     
     public String toString() {
         return "'" + nom + "' Heure début : " + heureDebut + "h, durée : "+ duree + "h. Divertissement, " + animateur;
+    }
+    
+    public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException{
+        programme.add(this);
+        this.heureDebut = heureDebut;
+        if (heureDebut<18 || heureDebut>23) {
+            throw new HoraireException ("Mauvais crénaud horaire, un divertissement peut commencer entre 18h et 23h.");
+        }
+        
     }
 
 }
