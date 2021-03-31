@@ -70,6 +70,7 @@ public class Projet_FIE2 {
         //verification
         System.out.println(programme.size());
         
+        programme.afficherProgramme();
         
         
     } 

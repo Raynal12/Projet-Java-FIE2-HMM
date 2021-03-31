@@ -33,6 +33,11 @@ public class ProgrammeTele extends ArrayList<Emission>{
                 table[e.getHeureDebut()] = true;
             }  
         }
+        for (int i = 0; i < 24; i++){
+            if (!table[i]){
+                //exception
+            }
+        }
         
     }
     

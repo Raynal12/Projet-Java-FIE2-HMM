@@ -43,9 +43,9 @@ public abstract class Emission implements Comparable <Emission> {
     public int compareTo(Emission emi) {
         int ret = 0;
         if (this.heureDebut < emi.heureDebut )   
-            ret = 1;
-        if (this.heureDebut > emi.heureDebut )   
             ret = -1;
+        if (this.heureDebut > emi.heureDebut )   
+            ret = 1;
         
        if (this.heureDebut == emi.heureDebut )   
             ret = this.nom.compareTo(emi.nom);
