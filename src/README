@@ -6,3 +6,5 @@ divertissement.programmer(grille, heure)
 Question :
 Mieux vaut un gros try catch ou un pour chaque instance ?
 
+Exception runtime
+
