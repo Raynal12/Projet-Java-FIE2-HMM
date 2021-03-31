@@ -5,6 +5,8 @@
  */
 package ProgrammeTele;
 
+import Exception.ChevauchementException;
+import Exception.TrouException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeSet;
@@ -24,18 +26,20 @@ public class ProgrammeTele extends ArrayList<Emission>{
         this.table = new boolean[23];
     }
     
-    public void verifierProgramme(){
+    public void verifierProgramme() throws ChevauchementException, TrouException{
+        //verification des chevauchements
         for (Emission e : this){
-            if(table[e.getHeureDebut()] = true){
-                //genere exception chevauchement
+            if(table[e.getHeureDebut()]){
+                throw new ChevauchementException("chevauchement d'emission à "+e.getHeureDebut()+"h");
             }
             else{
                 table[e.getHeureDebut()] = true;
             }  
         }
+        //verification des trous
         for (int i = 0; i < 24; i++){
             if (!table[i]){
-                //exception
+                throw new TrouException("Aucune émission de programmée à : "+8+"h");
             }
         }
         
@@ -43,12 +47,9 @@ public class ProgrammeTele extends ArrayList<Emission>{
     
     public void afficherProgramme(){
         lesEmissions = new TreeSet<Emission>();
-        
         for (Emission e : this){
            lesEmissions.add(e);
-           
         }
-        
         for (Emission e : lesEmissions){
            System.out.println(e);
         }
