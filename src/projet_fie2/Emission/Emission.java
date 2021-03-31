@@ -26,6 +26,10 @@ public abstract class Emission {
        
         
     }
+
+    public int getHeureDebut() {
+        return heureDebut;
+    }
     
     public abstract void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException;
     

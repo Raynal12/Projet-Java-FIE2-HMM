@@ -14,11 +14,23 @@ import projet_fie2.Emission.Emission;
  */
 public class ProgrammeTele extends ArrayList<Emission>{
     
-    private int[] table;
+    private boolean[] table;
     
     public ProgrammeTele (){
         super();
-        this.table = new int[23];
+        this.table = new boolean[23];
+    }
+    
+    public void verifierProgramme(){
+        for (Emission e : this){
+            if(table[e.getHeureDebut()] = true){
+                //genere exception chevauchement
+            }
+            else{
+                table[e.getHeureDebut()] = true;
+            }  
+        }
+        
     }
     
     
