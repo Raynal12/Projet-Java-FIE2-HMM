@@ -34,13 +34,13 @@ public class Reportage extends Emission{
     
     @Override
     public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException{
-        this.heureDebut = heureDebut;
-        programme.add(this);
         if (heureDebut>=18) {
             if (heureDebut>=6 && heureDebut<=14) {
                 throw new HoraireException ("Mauvais horaire, un reportage peut commencer entre 14h et 18h ou entre 0h et 6h.");
             }
         }
+        this.heureDebut = heureDebut;
+        programme.add(this);
     }
     
 }

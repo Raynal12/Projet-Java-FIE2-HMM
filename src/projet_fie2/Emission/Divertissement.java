@@ -33,11 +33,11 @@ public class Divertissement extends Emission{
     }
     
     public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException{
-        programme.add(this);
-        this.heureDebut = heureDebut;
         if (heureDebut<18 || heureDebut>23) {
             throw new HoraireException ("Mauvais crénaud horaire, un divertissement peut commencer entre 18h et 23h.");
         }
+        programme.add(this);
+        this.heureDebut = heureDebut;
         
     }
 

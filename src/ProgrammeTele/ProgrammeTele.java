@@ -24,6 +24,9 @@ public class ProgrammeTele extends ArrayList<Emission>{
     public ProgrammeTele (){
         super();
         this.table = new boolean[23];
+        for(int i = 0; i <24; i++){
+            table[i]=false;
+        }
     }
     
     public void verifierProgramme() throws ChevauchementException, TrouException{
