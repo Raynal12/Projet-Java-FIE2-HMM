@@ -6,6 +6,8 @@
 package ProgrammeTele;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.TreeSet;
 import projet_fie2.Emission.Emission;
 
 /**
@@ -15,6 +17,7 @@ import projet_fie2.Emission.Emission;
 public class ProgrammeTele extends ArrayList<Emission>{
     
     private boolean[] table;
+    private TreeSet<Emission> lesEmissions;
     
     public ProgrammeTele (){
         super();
@@ -32,6 +35,20 @@ public class ProgrammeTele extends ArrayList<Emission>{
         }
         
     }
+    
+    public void afficherProgramme(){
+        lesEmissions = new TreeSet<Emission>();
+        
+        for (Emission e : this){
+           lesEmissions.add(e);
+           
+        }
+        
+        for (Emission e : lesEmissions){
+           System.out.println(e);
+        }
+    }
+    
     
     
 }
