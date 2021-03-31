@@ -19,6 +19,7 @@ public class Fiction extends Emission{
     private boolean redifusion;
     private Realisateur realisateur;
     
+   
     public Fiction(int dureeEmission, String nom, int annee, boolean redifusion ,Realisateur realisateur){
         super(dureeEmission, nom);
         this.realisateur = realisateur;
@@ -37,11 +38,17 @@ public class Fiction extends Emission{
         }
     }
     
+    /**
+     * Permet de programmer un horaire de diffusion.
+     * @param heureDebut horaire de diffusion
+     * @param programme le programme auquel associer la fiction
+     * @throws HoraireException si horaire invalide
+     */
     public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException{
         programme.add(this);
         this.heureDebut = heureDebut;
         if (heureDebut != 21 && redifusion==false) {
-            throw new HoraireException ("Mauvais crénaud horaire, une fiction peut commencer à 21h.");
+            throw new HoraireException ("Mauvais crénaud horaire, une fiction qui n'est pas une redifusion ne peut commencer qu'à 21h.");
         }
         
     }
