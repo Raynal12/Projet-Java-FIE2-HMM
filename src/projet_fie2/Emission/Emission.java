@@ -28,6 +28,10 @@ public abstract class Emission implements Comparable <Emission> {
         
     }
 
+    public int getDuree() {
+        return duree;
+    }
+
     public int getHeureDebut() {
         return heureDebut;
     }

@@ -5,7 +5,9 @@
  */
 package projet_fie2;
 
+import Exception.ChevauchementException;
 import Exception.HoraireException;
+import Exception.TrouException;
 import ProgrammeTele.ProgrammeTele;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,7 +34,13 @@ public class MainTrou {
             Logger.getLogger(MainChevauchement.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        //verification + affichage
-        
+        try {
+            //verification + affichage
+            programme.verifierProgramme();
+        } catch (ChevauchementException ex) {
+            Logger.getLogger(MainTrou.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TrouException ex) {
+            Logger.getLogger(MainTrou.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

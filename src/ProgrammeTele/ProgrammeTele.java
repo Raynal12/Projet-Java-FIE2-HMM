@@ -23,7 +23,7 @@ public class ProgrammeTele extends ArrayList<Emission>{
     
     public ProgrammeTele (){
         super();
-        this.table = new boolean[23];
+        this.table = new boolean[24];
         for(int i = 0; i <24; i++){
             table[i]=false;
         }
@@ -32,12 +32,12 @@ public class ProgrammeTele extends ArrayList<Emission>{
     public void verifierProgramme() throws ChevauchementException, TrouException{
         //verification des chevauchements
         for (Emission e : this){
-            if(table[e.getHeureDebut()]){
-                throw new ChevauchementException("chevauchement d'emission à "+e.getHeureDebut()+"h");
+            for (int i = e.getHeureDebut(); i < e.getHeureDebut()+ e.getDuree(); i++){
+                if (this.table[i] == false)
+                    this.table[i] = true;
+                else
+                    throw new ChevauchementException("chevauchement à "+i+"h avec emission "+e);
             }
-            else{
-                table[e.getHeureDebut()] = true;
-            }  
         }
         //verification des trous
         for (int i = 0; i < 24; i++){
