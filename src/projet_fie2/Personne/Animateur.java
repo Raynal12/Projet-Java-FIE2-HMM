@@ -5,11 +5,13 @@
  */
 package projet_fie2.Personne;
 
+import java.io.Serializable;
+
 /**
  *
  * @author fanta
  */
-public class Animateur extends Personne{
+public class Animateur extends Personne implements Serializable{
 
     public Animateur(String nom, String prenom) {
         super(nom, prenom);

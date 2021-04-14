@@ -5,11 +5,13 @@
  */
 package projet_fie2.Personne;
 
+import java.io.Serializable;
+
 /**
  *
  * @author mattonhugo
  */
-public abstract class Personne {
+public abstract class Personne implements Serializable{
     protected String nom;
     protected String prenom;
 

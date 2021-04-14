@@ -5,11 +5,13 @@
  */
 package projet_fie2.Personne;
 
+import java.io.Serializable;
+
 /**
  *
  * @author fanta
  */
-public class Realisateur extends Personne{
+public class Realisateur extends Personne implements Serializable{
 
     public Realisateur(String nom, String prenom) {
         super(nom, prenom);

@@ -7,6 +7,13 @@ package ProgrammeTele;
 
 import Exception.ChevauchementException;
 import Exception.TrouException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeSet;
@@ -16,7 +23,7 @@ import projet_fie2.Emission.Emission;
  *
  * @author mattonhugo
  */
-public class ProgrammeTele extends ArrayList<Emission>{
+public class ProgrammeTele extends ArrayList<Emission> implements Serializable{
     
     private boolean[] table;
     private TreeSet<Emission> lesEmissions;
@@ -56,6 +63,23 @@ public class ProgrammeTele extends ArrayList<Emission>{
         for (Emission e : lesEmissions){
            System.out.println(e);
         }
+    }
+    
+    public void sauverGrille(String filePath)
+            throws FileNotFoundException, IOException {
+        FileOutputStream fos = new FileOutputStream(filePath);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(this); 
+        oos.close();
+    }
+    
+    public static ProgrammeTele lireGrille(String filePath)
+            throws FileNotFoundException, IOException, ClassNotFoundException {
+        FileInputStream fis = new FileInputStream(filePath);
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        ProgrammeTele obj = (ProgrammeTele) ois.readObject();
+        ois.close();
+        return obj;
     }
     
     

@@ -7,6 +7,7 @@ package projet_fie2.Emission;
 
 import Exception.HoraireException;
 import ProgrammeTele.ProgrammeTele;
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Objects;
  * @author mattonhugo
  */
 // petit commentaire pour voir si je peux push Maëlle
-public abstract class Emission implements Comparable <Emission> {
+public abstract class Emission implements Comparable <Emission>, Serializable {
     
     protected int duree;
     protected String nom;
