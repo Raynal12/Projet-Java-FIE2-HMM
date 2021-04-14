@@ -5,9 +5,12 @@
  */
 package projet_fie2.Emission;
 
+import Exception.DepassementGrilleException;
 import Exception.HoraireException;
 import Exception.DureeException;
 import ProgrammeTele.ProgrammeTele;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import projet_fie2.Personne.Animateur;
 
 /**
@@ -33,6 +36,11 @@ public class Divertissement extends Emission{
     }
     
     public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException{
+        try {
+            super.programmerEmission(heureDebut, programme);
+        } catch (DepassementGrilleException ex) {
+            Logger.getLogger(Fiction.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if (heureDebut<18 || heureDebut>23) {
             throw new HoraireException ("Mauvais crénaud horaire, un divertissement peut commencer entre 18h et 23h.");
         }

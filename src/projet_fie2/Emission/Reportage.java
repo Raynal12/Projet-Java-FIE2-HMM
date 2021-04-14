@@ -5,9 +5,12 @@
  */
 package projet_fie2.Emission;
 
+import Exception.DepassementGrilleException;
 import Exception.DureeException;
 import Exception.HoraireException;
 import ProgrammeTele.ProgrammeTele;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -34,6 +37,11 @@ public class Reportage extends Emission{
     
     @Override
     public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException{
+        try {
+            super.programmerEmission(heureDebut, programme);
+        } catch (DepassementGrilleException ex) {
+            Logger.getLogger(Fiction.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if (heureDebut>=18) {
             if (heureDebut>=6 && heureDebut<=14) {
                 throw new HoraireException ("Mauvais horaire, un reportage peut commencer entre 14h et 18h ou entre 0h et 6h.");

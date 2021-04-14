@@ -5,6 +5,7 @@
  */
 package projet_fie2.Emission;
 
+import Exception.DepassementGrilleException;
 import Exception.HoraireException;
 import ProgrammeTele.ProgrammeTele;
 import java.io.Serializable;
@@ -37,7 +38,10 @@ public abstract class Emission implements Comparable <Emission>, Serializable {
         return heureDebut;
     }
     
-    public abstract void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException;
+    public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException, DepassementGrilleException{
+        if(heureDebut+this.getDuree() > 24)
+            throw new DepassementGrilleException("Emission trop longue : vous ne pouvez pas programmer une emission ayant une durée de  "+this.getDuree()+"h à "+heureDebut+"h");
+    }
     
     @Override
     public String toString() {

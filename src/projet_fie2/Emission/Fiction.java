@@ -5,8 +5,11 @@
  */
 package projet_fie2.Emission;
 
+import Exception.DepassementGrilleException;
 import Exception.HoraireException;
 import ProgrammeTele.ProgrammeTele;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import projet_fie2.Personne.Realisateur;
 
 /**
@@ -45,6 +48,11 @@ public class Fiction extends Emission{
      * @throws HoraireException si horaire invalide
      */
     public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException{
+        try {
+            super.programmerEmission(heureDebut, programme);
+        } catch (DepassementGrilleException ex) {
+            Logger.getLogger(Fiction.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if (heureDebut != 21 && redifusion==false) {
             throw new HoraireException ("Mauvais crénaud horaire, une fiction qui n'est pas une redifusion ne peut commencer qu'à 21h.");
         }
