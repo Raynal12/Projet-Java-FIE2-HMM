@@ -11,19 +11,8 @@ package Exception;
  */
 public class DureeException extends EmissionException {
 
-    /**
-     * Creates a new instance of <code>DureeException</code> without detail
-     * message.
-     */
-    public DureeException() {
-    }
+    public DureeException() {}
 
-    /**
-     * Constructs an instance of <code>DureeException</code> with the specified
-     * detail message.
-     *
-     * @param msg the detail message.
-     */
     public DureeException(String msg) {
         super(msg);
     }

@@ -32,9 +32,14 @@ public class Reportage extends Emission{
 
     @Override
     public String toString() {
-        return "'" + nom + "' Heure début :" + heureDebut + "h, durée : " + duree + "h. Reportage, theme : " + theme;
+        return super.toString()+ "Théme : "+theme;
     }
-    
+    /**
+     * Permet de programmer à une un horaire de diffusion précise un objet de type Reportage dans un objet de type ProgrammeTélé .
+     * @param heureDebut
+     * @param programme
+     * @throws HoraireException 
+     */
     @Override
     public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException{
         try {

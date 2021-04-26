@@ -11,19 +11,8 @@ package Exception;
  */
 public class ProgramationException extends Exception {
 
-    /**
-     * Creates a new instance of <code>ProgramationException</code> without
-     * detail message.
-     */
-    public ProgramationException() {
-    }
+    public ProgramationException() {}
 
-    /**
-     * Constructs an instance of <code>ProgramationException</code> with the
-     * specified detail message.
-     *
-     * @param msg the detail message.
-     */
     public ProgramationException(String msg) {
         super(msg);
     }

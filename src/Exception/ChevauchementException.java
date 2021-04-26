@@ -9,13 +9,10 @@ package Exception;
  *
  * @author mattonhugo
  */
-public class ChevauchementException extends ProgramationException {
-     
+public class ChevauchementException extends ProgramationException { 
     
-    public ChevauchementException() {
-    }
+    public ChevauchementException() {}
 
-    
     public ChevauchementException(String msg) {
         super(msg);
     }

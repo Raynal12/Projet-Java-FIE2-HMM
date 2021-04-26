@@ -11,10 +11,10 @@ package Exception;
  */
 public class DepassementGrilleException extends ProgramationException{
     
-    public DepassementGrilleException() {
-    }
+    public DepassementGrilleException() {}
 
     public DepassementGrilleException(String msg) {
         super(msg);
     }
+    
 }

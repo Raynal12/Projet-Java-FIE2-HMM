@@ -22,7 +22,7 @@ public abstract class Personne implements Serializable{
 
     @Override
     public String toString() {
-        return  nom + " " + prenom;
+        return  "("+nom + " - " + prenom+")";
     }
     
 }

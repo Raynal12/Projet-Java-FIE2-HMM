@@ -25,18 +25,29 @@ import projet_fie2.Emission.Emission;
  */
 public class ProgrammeTele extends ArrayList<Emission> implements Serializable{
     
-    private boolean[] table;
-    private TreeSet<Emission> lesEmissions;
+    private boolean[] table; //sert pour la vérification de la grille
+    private TreeSet<Emission> lesEmissions;//sert pour trier les émissions avant de les afficher 
+    private boolean programme_valide = false;
     
     public ProgrammeTele (){
         super();
         this.table = new boolean[24];
+        //par sécurité on initialise les cases de notre tableau à false
         for(int i = 0; i <24; i++){
             table[i]=false;
         }
     }
     
+    /**
+     * permet de vérifier la validité de l'objet ProgrammeTélé
+     * @throws ChevauchementException
+     * @throws TrouException 
+     */
     public void verifierProgramme() throws ChevauchementException, TrouException{
+        //on reinitialise le tableau de booléen à false par précaution
+        for(int i = 0; i <24; i++){
+            this.table[i]=false;
+        }
         //verification des chevauchements
         for (Emission e : this){
             for (int i = e.getHeureDebut(); i < e.getHeureDebut()+ e.getDuree(); i++){
@@ -52,19 +63,38 @@ public class ProgrammeTele extends ArrayList<Emission> implements Serializable{
                 throw new TrouException("Aucune émission de programmée à : "+8+"h");
             }
         }
-        
+        //Si tout s'est bien passé on passe l'attribut programme_valide à true
+        this.programme_valide = true;
     }
     
+    /**
+     * Permet d'afficher le programme télé si ce dernier est valide
+     */
     public void afficherProgramme(){
-        lesEmissions = new TreeSet<Emission>();
-        for (Emission e : this){
-           lesEmissions.add(e);
+        
+        if (this.programme_valide){
+            //TreeSet pour trier les émissions
+            lesEmissions = new TreeSet<Emission>();
+            //On met les émissions dans la TreeSet
+            for (Emission e : this){
+            lesEmissions.add(e);
+            }
+            //On affiche le contenu de la TreeSet
+            for (Emission e : lesEmissions){
+                System.out.println(e);
+            }
         }
-        for (Emission e : lesEmissions){
-           System.out.println(e);
+        else{
+            System.out.println("le programme n'est pas valide, impossible de l'afficher");
         }
     }
     
+    /**
+     * permet de sérialiser l'objet courant dans un fichier sous forme binaire
+     * @param filePath
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public void sauverGrille(String filePath)
             throws FileNotFoundException, IOException {
         FileOutputStream fos = new FileOutputStream(filePath);
@@ -73,6 +103,14 @@ public class ProgrammeTele extends ArrayList<Emission> implements Serializable{
         oos.close();
     }
     
+    /**
+     * permet de lire les données binaire contenu dans un fichier et retourne l'objet ProgrammeTélé correspondant
+     * @param filePath
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static ProgrammeTele lireGrille(String filePath)
             throws FileNotFoundException, IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream(filePath);

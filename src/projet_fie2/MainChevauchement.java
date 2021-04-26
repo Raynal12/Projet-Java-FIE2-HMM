@@ -43,13 +43,14 @@ public class MainChevauchement {
         
         //verification programme
         try {
-            
             programme.verifierProgramme();
         } catch (ChevauchementException ex) {
             Logger.getLogger(MainChevauchement.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TrouException ex) {
             Logger.getLogger(MainChevauchement.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
         
         
         

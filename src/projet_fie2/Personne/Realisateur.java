@@ -19,7 +19,7 @@ public class Realisateur extends Personne implements Serializable{
 
     @Override
     public String toString() {
-        return "Realisateur : " + super.toString();
+        return " - Realisateur : " + super.toString();
     }
     
     

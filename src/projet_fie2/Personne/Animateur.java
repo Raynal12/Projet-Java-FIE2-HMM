@@ -19,7 +19,7 @@ public class Animateur extends Personne implements Serializable{
 
     @Override
     public String toString() {
-        return "Animateur : " + super.toString();
+        return "- Animateur : " + super.toString();
     }
     
     

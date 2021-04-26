@@ -26,15 +26,20 @@ public class Divertissement extends Emission{
         this.animateur = animateur;
         
         if (dureeEmission != 2) {
-            throw new DureeException ("Durée du divertissement fausse. Elle doit être égale à 2 heures.");
+            throw new DureeException ("La durée d'un divertissement doit être égale à 2h.");
         }
-        
     }
     
     public String toString() {
-        return "'" + nom + "' Heure début : " + heureDebut + "h, durée : "+ duree + "h. Divertissement, " + animateur;
+        return super.toString()+ animateur.toString();
     }
     
+    /**
+     * Permet de programmer à une un horaire de diffusion précise un objet de type Divertissement dans un objet de type ProgrammeTélé
+     * @param heureDebut
+     * @param programme
+     * @throws HoraireException 
+     */
     public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException{
         try {
             super.programmerEmission(heureDebut, programme);
@@ -42,7 +47,7 @@ public class Divertissement extends Emission{
             Logger.getLogger(Fiction.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (heureDebut<18 || heureDebut>23) {
-            throw new HoraireException ("Mauvais crénaud horaire, un divertissement peut commencer entre 18h et 23h.");
+            throw new HoraireException ("Horaire invalide, un divertissement peut commencer entre 18h et 23h.");
         }
         programme.add(this);
         this.heureDebut = heureDebut;

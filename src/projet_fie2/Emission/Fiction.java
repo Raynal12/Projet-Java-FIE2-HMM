@@ -33,16 +33,11 @@ public class Fiction extends Emission{
 
     @Override
     public String toString() {
-        if (redifusion) {
-        return "'" + nom + "' Heure de diffusion : " + heureDebut + "h, durée : " + duree + "h. Fiction, redifusion. Annee de realisation :" + anneRealisation + ", " + realisateur;
-        } else {
-        return "'" + nom + "' Heure de diffusion : " + heureDebut + "h, durée : " + duree + "h. Fiction, annee de realisation :" + anneRealisation + ", " + realisateur;
-
-        }
+        return super.toString() + "-Année : "+anneRealisation+" -Redifusion : "+redifusion + realisateur.toString();
     }
     
     /**
-     * Permet de programmer un horaire de diffusion.
+     * Permet de programmer à une un horaire de diffusion précise un objet de type Fiction dans un objet de type ProgrammeTélé .
      * @param heureDebut horaire de diffusion
      * @param programme le programme auquel associer la fiction
      * @throws HoraireException si horaire invalide
@@ -54,7 +49,7 @@ public class Fiction extends Emission{
             Logger.getLogger(Fiction.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (heureDebut != 21 && redifusion==false) {
-            throw new HoraireException ("Mauvais crénaud horaire, une fiction qui n'est pas une redifusion ne peut commencer qu'à 21h.");
+            throw new HoraireException ("Une fiction qui n'est pas une redifusion ne peut commencer qu'à 21h.");
         }
         programme.add(this);
         this.heureDebut = heureDebut;

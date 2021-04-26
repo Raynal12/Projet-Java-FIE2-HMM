@@ -12,9 +12,7 @@ package Exception;
 public class TrouException extends ProgramationException {
      
     
-    public TrouException() {
-        
-    }
+    public TrouException() {}
     
     public TrouException(String msg) {
         super(msg);

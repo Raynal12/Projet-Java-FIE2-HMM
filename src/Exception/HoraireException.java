@@ -11,15 +11,8 @@ package Exception;
  */
 public class HoraireException extends EmissionException{
     
-        public HoraireException() {
-    }
+    public HoraireException() {}
 
-    /**
-     * Constructs an instance of <code>AnimalException</code> with the specified
-     * detail message.
-     *
-     * @param msg the detail message.
-     */
     public HoraireException(String msg) {
         super(msg);
     }

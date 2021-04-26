@@ -24,30 +24,30 @@ public abstract class Emission implements Comparable <Emission>, Serializable {
 
     public Emission(int duree, String nom) {
         this.duree = duree;
-        this.nom = nom;
-        
-       
-        
-    }
-
-    public int getDuree() {
-        return duree;
-    }
-
-    public int getHeureDebut() {
-        return heureDebut;
+        this.nom = nom; 
     }
     
+    //getter
+    public int getDuree() {return duree;}
+    public int getHeureDebut() {return heureDebut;}
+    
+    //toString
+    public String toString() {
+        return "Emission : " + nom + "- Duree : " + duree + "- Début : " + heureDebut +"h";
+    }
+    
+    /**
+     * Permet de programmer une émission dans un ProgrammeTélé à une certaine heure
+     * @param heureDebut
+     * @param programme
+     * @throws HoraireException
+     * @throws DepassementGrilleException 
+     */
     public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException, DepassementGrilleException{
         if(heureDebut+this.getDuree() > 24)
             throw new DepassementGrilleException("Emission trop longue : vous ne pouvez pas programmer une emission ayant une durée de  "+this.getDuree()+"h à "+heureDebut+"h");
     }
     
-    @Override
-    public String toString() {
-        return "Emission : " + nom + ", duree : " + duree + ", heure de debut : " + heureDebut;
-    }
-
     @Override
     public int compareTo(Emission emi) {
         int ret = 0;
@@ -93,5 +93,4 @@ public abstract class Emission implements Comparable <Emission>, Serializable {
         }
         return true;
     }
-    
 }
