@@ -44,7 +44,7 @@ public class Reportage extends Emission{
     public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException{
         try {
             super.programmerEmission(heureDebut, programme);
-        } catch (DepassementGrilleException ex) {
+        } catch (HoraireException ex) {
             Logger.getLogger(Fiction.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (heureDebut>=18) {
@@ -52,8 +52,8 @@ public class Reportage extends Emission{
                 throw new HoraireException ("Mauvais horaire, un reportage peut commencer entre 14h et 18h ou entre 0h et 6h.");
             }
         }
-        this.heureDebut = heureDebut;
         programme.add(this);
+        this.heureDebut = heureDebut;
     }
     
 }

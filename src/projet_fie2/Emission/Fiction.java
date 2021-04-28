@@ -45,15 +45,14 @@ public class Fiction extends Emission{
     public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException{
         try {
             super.programmerEmission(heureDebut, programme);
-        } catch (DepassementGrilleException ex) {
+        } catch (HoraireException ex) {
             Logger.getLogger(Fiction.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (heureDebut != 21 && redifusion==false) {
             throw new HoraireException ("Une fiction qui n'est pas une redifusion ne peut commencer qu'à 21h.");
         }
-        programme.add(this);
         this.heureDebut = heureDebut;
-        
+        programme.add(this);
     }
     
 }
