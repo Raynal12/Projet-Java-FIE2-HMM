@@ -6,7 +6,9 @@
 package ProgrammeTele;
 
 import Exception.ChevauchementException;
+import Exception.ProgramationException;
 import Exception.TrouException;
+import Exception.GrilleValideException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -36,6 +38,11 @@ public class ProgrammeTele extends ArrayList<Emission> implements Serializable{
         for(int i = 0; i <24; i++){
             table[i]=false;
         }
+    }
+    
+    //getter
+    public boolean isProgramme_valide() {
+        return programme_valide;
     }
     
     /**
@@ -70,11 +77,10 @@ public class ProgrammeTele extends ArrayList<Emission> implements Serializable{
     /**
      * Permet d'afficher le programme télé si ce dernier est valide
      */
-    public void afficherProgramme(){
-        
+    public TreeSet<Emission> TrierProgramme() throws ProgramationException, GrilleValideException{
+        //TreeSet pour trier les émissions
+        lesEmissions = new TreeSet<Emission>();
         if (this.programme_valide){
-            //TreeSet pour trier les émissions
-            lesEmissions = new TreeSet<Emission>();
             //On met les émissions dans la TreeSet
             for (Emission e : this){
             lesEmissions.add(e);
@@ -85,8 +91,9 @@ public class ProgrammeTele extends ArrayList<Emission> implements Serializable{
             }
         }
         else{
-            System.out.println("le programme n'est pas valide, impossible de l'afficher");
+            throw new GrilleValideException("Impossible de trier une grille non valide ou non verifier");
         }
+        return lesEmissions;
     }
     
     /**

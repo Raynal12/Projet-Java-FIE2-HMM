@@ -42,6 +42,7 @@ public class Fiction extends Emission{
      * @param programme le programme auquel associer la fiction
      * @throws HoraireException si horaire invalide
      */
+    @Override
     public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException{
         try {
             super.programmerEmission(heureDebut, programme);

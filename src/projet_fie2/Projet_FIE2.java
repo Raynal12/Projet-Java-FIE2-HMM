@@ -7,7 +7,9 @@ package projet_fie2;
 
 
 import Exception.DureeException;
+import Exception.GrilleValideException;
 import Exception.HoraireException;
+import Exception.ProgramationException;
 import ProgrammeTele.ProgrammeTele;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +27,7 @@ import projet_fie2.Personne.Realisateur;
  */
 public class Projet_FIE2 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws GrilleValideException {
         
         //craetion programme télé
         ProgrammeTele programme = new ProgrammeTele();
@@ -70,7 +72,11 @@ public class Projet_FIE2 {
         //verification
         System.out.println(programme.size());
         
-        programme.afficherProgramme();
+        try {
+            programme.TrierProgramme().toString();
+        } catch (ProgramationException ex) {
+            Logger.getLogger(Projet_FIE2.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
     } 

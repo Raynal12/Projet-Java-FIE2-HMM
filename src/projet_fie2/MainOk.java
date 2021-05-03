@@ -6,7 +6,9 @@
 package projet_fie2;
 
 import Exception.ChevauchementException;
+import Exception.GrilleValideException;
 import Exception.HoraireException;
+import Exception.ProgramationException;
 import Exception.TrouException;
 import ProgrammeTele.ProgrammeTele;
 import java.io.IOException;
@@ -21,13 +23,16 @@ import projet_fie2.Personne.Realisateur;
  */
 public class MainOk {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws GrilleValideException {
       
         ProgrammeTele programme = new ProgrammeTele();
         System.out.println("Creation programme");
         
-        Fiction fic1 = new Fiction(24,"Avatar",2000,true,new Realisateur("James", "Cameron"));
+        Fiction fic1 = new Fiction(12,"Avatar",2000,true,new Realisateur("James", "Cameron"));
         System.out.println("Creation fic1");
+        
+        Fiction fic2 = new Fiction(12,"Avatar",2000,true,new Realisateur("James", "Cameron"));
+        System.out.println("Creation fic2");
         
         try {
             fic1.programmerEmission(0, programme);
@@ -35,7 +40,24 @@ public class MainOk {
         } catch (HoraireException ex) {
             Logger.getLogger(MainOk.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try {
+            fic2.programmerEmission(12, programme);
+            System.out.println("Programation fic1 dans programme");
+        } catch (HoraireException ex) {
+            Logger.getLogger(MainOk.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
+        try {
+            programme.verifierProgramme();
+            System.out.println(programme.isProgramme_valide());
+        } catch (ChevauchementException ex) {
+            Logger.getLogger(MainOk.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TrouException ex) {
+            Logger.getLogger(MainOk.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+       
         try {
             programme.sauverGrille("sauvegarde");
             System.out.println("Sauvegarde fic1");
@@ -62,7 +84,11 @@ public class MainOk {
             Logger.getLogger(MainOk.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        programme_save.afficherProgramme();
+        try {
+            programme_save.TrierProgramme().toString();
+        } catch (ProgramationException ex) {
+            Logger.getLogger(MainOk.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     
