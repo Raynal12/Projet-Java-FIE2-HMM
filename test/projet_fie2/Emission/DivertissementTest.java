@@ -5,6 +5,8 @@
  */
 package projet_fie2.Emission;
 
+import Exception.DureeException;
+import Exception.HoraireException;
 import ProgrammeTele.ProgrammeTele;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -20,8 +22,11 @@ import projet_fie2.Personne.Animateur;
  */
 public class DivertissementTest {
     
-    public DivertissementTest() {
-    }
+    //@Test (expected = DureeException.class)//Pas OK
+    //public TestDivertissementDureeMauvaise() throws Exception{
+        //Divertissement div = new Divertissement(3, "Test", new Animateur("Test", "unitaire"));
+        //fail("Une execption de type DureeException aurait dû être levée.");
+    //}
     
     @BeforeClass
     public static void setUpClass() {
@@ -42,26 +47,42 @@ public class DivertissementTest {
     /**
      * Test of programmerEmission method, of class Divertissement.
      */
-    @Test
+    @Test //OK
     public void testProgrammerEmission() throws Exception {
+        System.out.println("testProgrammerEmission");
+        int expResult=1;
         ProgrammeTele programme = new ProgrammeTele();
         Divertissement div = new Divertissement(2, "Test", new Animateur("Test", "unitaire"));
-        div.programmeEmission(19 , programme);
-        programme.programmerEmission();
+        div.programmerEmission(19 , programme);
+        //programme.programmerEmission();
+        assertEquals(expResult, programme.size());
     }
     
         /**
      * Test of programmerEmission method, of class Divertissement.
+     * @throws java.lang.Exception
      */
-    @Test
-    public void testProgrammerEmission() throws Exception {
-        System.out.println("programmerEmission");
-        int heureDebut = 0;
-        ProgrammeTele programme = null;
-        Divertissement instance = null;
-        instance.programmerEmission(heureDebut, programme);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    @Test (expected = HoraireException.class) //Pas OK -> si heureDebut<18
+    public void testProgrammerEmissionHoraireTropTot() throws Exception {
+        System.out.println("testProgrammerEmissionTropTot");
+        ProgrammeTele programme = new ProgrammeTele();
+        Divertissement div = new Divertissement(2, "Test", new Animateur("Test", "unitaire"));
+        div.programmerEmission(5 , programme);
+        fail("Une execption de type HoraireExeption aurait dû être levée.");
     }
     
+    @Test (expected = DureeException.class) // Pas OK
+    public void testConstructeurNok() throws Exception{
+        System.out.println("test constructeur en erreur");
+        Divertissement div = new Divertissement(1, "Test", new Animateur("Test", "unitaire"));
+        fail("Constructeur pas en erreur");
+    }
+    
+    @Test //OK
+    public void testConstructeurOk() throws Exception {
+        System.out.println("test constructeur OK");
+        int expResult=2;
+        Divertissement div = new Divertissement(2, "Test", new Animateur("Test", "unitaire"));
+        assertEquals(expResult, div.getDuree());
+}
 }
