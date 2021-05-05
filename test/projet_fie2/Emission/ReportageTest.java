@@ -5,6 +5,8 @@
  */
 package projet_fie2.Emission;
 
+import Exception.DureeException;
+import Exception.HoraireException;
 import ProgrammeTele.ProgrammeTele;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -45,15 +47,30 @@ public class ReportageTest {
      */
     @Test
     public void testProgrammerEmission() throws Exception {
-        int ;
+        int expResult = 1 ;
         ProgrammeTele programme = new ProgrammeTele();
         Reportage rep = new Reportage(1,"Le lapin bélier",ANIMALIER);
         rep.programmerEmission(2, programme);
-        programme.programmerEmission();
-        
-        
-        
-        
+       assertEquals(expResult, programme.size());
+    
     }
     
+    @Test (expected = DureeException.class)
+    public void testProgrammerEmissionDureeFaux() throws Exception {
+        // on teste si la duréee excède 1h
+        ProgrammeTele programme = new ProgrammeTele();
+        Reportage rep = new Reportage(2,"Le lapin bélier",ANIMALIER);
+        rep.programmerEmission(2, programme);
+        fail ("Une émission de type DureeException aurait du être levé");
+          
+    }
+    
+    @Test (expected = HoraireException.class)
+    public void testProgrammerEmissionHoraireFaux() throws Exception {
+        // on teste  si l'horaire de programmation est programmé durant les heures creuses
+        ProgrammeTele programme = new ProgrammeTele();
+        Reportage rep = new Reportage(1,"Le lapin bélier",ANIMALIER);
+        rep.programmerEmission(12, programme);
+        fail ("Une émission de type HoraireException aurait du être levé");
+    }
 }
