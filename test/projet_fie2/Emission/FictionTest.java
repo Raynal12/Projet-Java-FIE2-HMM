@@ -22,6 +22,7 @@ import projet_fie2.Personne.Realisateur;
 public class FictionTest {
     
     public FictionTest() {
+        
     }
     
     @BeforeClass
