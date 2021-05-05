@@ -58,7 +58,7 @@ public class FictionTest {
         //on programme une fiction qui n'est pas une redifusion à une autre heure que 21h
         ProgrammeTele programme = new ProgrammeTele();
         Fiction fic = new Fiction(3,"Avatar",2010,false,new Realisateur("Test","Unitaire"));
-        fic.programmerEmission(0, programme);
+        fic.programmerEmission(3, programme);
         fail("Une émission de type HoraireException aurait du être levé");
     }
     
