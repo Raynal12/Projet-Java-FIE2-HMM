@@ -56,7 +56,7 @@ public class ReportageTest {
     }
     
     @Test (expected = DureeException.class)
-    public void testProgrammerEmissionDureeFaux() throws Exception {
+    public void testConstructeurDureeFausse() throws Exception {
         // on teste si la duréee excède 1h
         ProgrammeTele programme = new ProgrammeTele();
         Reportage rep = new Reportage(2,"Le lapin bélier",ANIMALIER);
