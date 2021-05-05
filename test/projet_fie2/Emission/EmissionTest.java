@@ -57,13 +57,4 @@ public class EmissionTest {
         fail("Pas d'exception");
     }
     
-   
-
-    public class EmissionImpl extends Emission {
-
-        public EmissionImpl() {
-            super(0, "");
-        }
-    }
-    
 }

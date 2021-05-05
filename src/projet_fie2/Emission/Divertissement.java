@@ -42,11 +42,7 @@ public class Divertissement extends Emission{
      */
     @Override
     public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException{
-        try {
-            super.programmerEmission(heureDebut, programme);
-        } catch (HoraireException ex) {
-            Logger.getLogger(Fiction.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        super.programmerEmission(heureDebut, programme);
         if (heureDebut<18 || heureDebut>23) {
             throw new HoraireException ("Horaire invalide, un divertissement peut commencer entre 18h et 23h.");
         }
