@@ -54,7 +54,7 @@ public class FictionTest {
     }
     
     @Test (expected = HoraireException.class)
-    public void testProgrammerEmissionHorraireMauvais() throws Exception {
+    public void testProgrammerEmissionHoraireMauvais() throws Exception {
         //on programme une fiction qui n'est pas une redifusion à une autre heure que 21h
         ProgrammeTele programme = new ProgrammeTele();
         Fiction fic = new Fiction(3,"Avatar",2010,false,new Realisateur("Test","Unitaire"));

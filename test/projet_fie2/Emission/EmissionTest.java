@@ -49,7 +49,7 @@ public class EmissionTest {
         
     }
     
-    @Test (expected = HoraireException.class)
+    @Test (expected = HoraireException.class) //Pas OK
     public void testProgrammerEmissionDepassement() throws Exception {
         ProgrammeTele programme = new ProgrammeTele();
         Fiction fic = new Fiction(4,"Test",2000,true,new Realisateur("Test","Unitaire"));

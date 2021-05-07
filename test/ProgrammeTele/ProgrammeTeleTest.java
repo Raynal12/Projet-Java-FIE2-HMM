@@ -65,14 +65,14 @@ public class ProgrammeTeleTest {
     @Test 
     public void testVerifierProgramme() throws Exception{
         boolean expResult = true;
-        //creation d'une grille d'emission devant générer un ChevauchementException
+        //creation d'une grille d'emission correcte
         ProgrammeTele programme = new ProgrammeTele();
         Fiction fic1 = new Fiction(12,"Avatar",2000,true,new Realisateur("James", "Cameron"));
         Fiction fic2 = new Fiction(12,"Avatar",2000,true,new Realisateur("James", "Cameron"));
         fic1.programmerEmission(0, programme);
         fic2.programmerEmission(12, programme);
         programme.verifierProgramme();
-        //Verification d'une grille avec un chevauchement
+        //Verification que la grille passe avec succès Programme_valide()
         assertEquals(expResult, programme.isProgramme_valide());
     }
     
@@ -105,18 +105,6 @@ public class ProgrammeTeleTest {
         programme.verifierProgramme();
         fail("On aurait du avoir une exception de type TrouException");
     }
-    
-    /**
-     * Test of TrierProgramme method, of class ProgrammeTele.
-     */
-    @Test (expected = GrilleValideException.class)
-    public void testTrierProgramme() throws Exception {
-        //tentative de trie sur une grille non vérifiée
-        ProgrammeTele programme = new ProgrammeTele();
-        Fiction fic1 = new Fiction(24,"Test",2000,true,new Realisateur("Test", "Test"));
-        fic1.programmerEmission(0, programme);
-        programme.TrierProgramme();
-    }
 
     /**
      * Test of sauverGrille method, of class ProgrammeTele.
@@ -129,7 +117,7 @@ public class ProgrammeTeleTest {
     /**
      * Test of lireGrille method, of class ProgrammeTele.
      */
-    @Test
+    @Test 
     public void testLireGrille() throws Exception {
         
     }
