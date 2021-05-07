@@ -22,12 +22,6 @@ import projet_fie2.Personne.Animateur;
  */
 public class DivertissementTest {
     
-    //@Test (expected = DureeException.class)//Pas OK
-    //public TestDivertissementDureeMauvaise() throws Exception{
-        //Divertissement div = new Divertissement(3, "Test", new Animateur("Test", "unitaire"));
-        //fail("Une execption de type DureeException aurait dû être levée.");
-    //}
-    
     @BeforeClass
     public static void setUpClass() {
     }
