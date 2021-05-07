@@ -25,7 +25,7 @@ import projet_fie2.Emission.Emission;
  *
  * @author mattonhugo
  */
-public class ProgrammeTele extends ArrayList<Emission> implements Serializable{
+public class ProgrammeTele extends TreeSet<Emission> implements Serializable{
     
     private boolean[] table; //sert pour la vérification de la grille
     private TreeSet<Emission> lesEmissions;//sert pour trier les émissions avant de les afficher 
@@ -72,28 +72,6 @@ public class ProgrammeTele extends ArrayList<Emission> implements Serializable{
         }
         //Si tout s'est bien passé on passe l'attribut programme_valide à true
         this.programme_valide = true;
-    }
-    
-    /**
-     * Permet d'afficher le programme télé si ce dernier est valide
-     */
-    public TreeSet<Emission> TrierProgramme() throws ProgramationException, GrilleValideException{
-        //TreeSet pour trier les émissions
-        lesEmissions = new TreeSet<Emission>();
-        if (this.programme_valide){
-            //On met les émissions dans la TreeSet
-            for (Emission e : this){
-            lesEmissions.add(e);
-            }
-            //On affiche le contenu de la TreeSet
-            for (Emission e : lesEmissions){
-                System.out.println(e);
-            }
-        }
-        else{
-            throw new GrilleValideException("Impossible de trier une grille non valide ou non verifier");
-        }
-        return lesEmissions;
     }
     
     /**

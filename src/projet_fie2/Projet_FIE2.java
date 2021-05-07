@@ -72,11 +72,9 @@ public class Projet_FIE2 {
         //verification
         System.out.println(programme.size());
         
-        try {
-            programme.TrierProgramme().toString();
-        } catch (ProgramationException ex) {
-            Logger.getLogger(Projet_FIE2.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println(programme.toString());
+            
+       
         
         
     } 
