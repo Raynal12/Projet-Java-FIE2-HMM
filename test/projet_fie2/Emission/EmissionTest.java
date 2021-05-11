@@ -46,7 +46,11 @@ public class EmissionTest {
      */
     @Test
     public void testProgrammerEmission() throws Exception {
-        
+        int expResult = 1;
+        ProgrammeTele programme = new ProgrammeTele();
+        Fiction fic = new Fiction(4,"Test",2000,true,new Realisateur("Test","Unitaire"));
+        fic.programmerEmission(15, programme);
+        assertEquals(expResult, programme.size());
     }
     
     @Test (expected = HoraireException.class) //Pas OK

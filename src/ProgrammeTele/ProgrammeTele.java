@@ -73,6 +73,7 @@ public class ProgrammeTele extends TreeSet<Emission> implements Serializable{
         //Si tout s'est bien passé on passe l'attribut programme_valide à true
         this.programme_valide = true;
     }
+
     
     /**
      * permet de sérialiser l'objet courant dans un fichier sous forme binaire

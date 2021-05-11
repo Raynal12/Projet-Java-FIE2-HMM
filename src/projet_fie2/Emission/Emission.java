@@ -42,6 +42,7 @@ public abstract class Emission implements Comparable <Emission>, Serializable {
      * @param programme
      * @throws HoraireException
      */
+    
     public void programmerEmission(int heureDebut,ProgrammeTele programme) throws HoraireException{
         if(heureDebut+this.duree > 24)
             throw new HoraireException("Emission trop longue : vous ne pouvez pas "
