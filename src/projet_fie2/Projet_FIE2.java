@@ -35,11 +35,18 @@ public class Projet_FIE2 {
         //creation d'un programme
         System.out.println("Creation d'un programme");
         ProgrammeTele programme = new ProgrammeTele();
-        //creation d'une fiction de 24h 
+        //creation d'une fiction 1 de 12h 
         System.out.println("Creation d'une fiction (Avatar)");
-        Fiction fiction = new Fiction(24,"Avatar",2000,true,new Realisateur("James","Cameron"));
-        //programation de la fiction dans programme à 0h
-        fiction.programmerEmission(0, programme);
+        Fiction fic1 = new Fiction(12,"Avatar",2000,true,new Realisateur("James","Cameron"));
+        //creation d'une fiction 2 de 12h 
+        System.out.println("Creation d'une fiction (Avatar)");
+        Fiction fic2 = new Fiction(12,"Terminator",2000,true,new Realisateur("James","Cameron"));
+        
+        //programation de la fiction 1 dans programme à 0h
+        fic1.programmerEmission(0, programme);
+        System.out.println("programation de la fiction dans programme");
+        //programation de la fiction 2 dans programme à 0h
+        fic2.programmerEmission(12, programme);
         System.out.println("programation de la fiction dans programme");
         //verification de la validité du programme
         try {
